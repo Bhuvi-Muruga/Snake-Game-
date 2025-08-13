@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="top-actions">
+            <button class="home-btn" onclick="showStartScreen()">Home</button>
+            <button class="home-btn" onclick="openShare()" style="right:auto; left:8px">Share</button>
+        </div>
+        <h1 class="game-title">🐍 Snake Game</h1>
+
+        <div class="game-stats">
+            <div class="stat-box">
+                <div class="stat-label">Score</div>
+                <div class="stat-value" id="score">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">High Score</div>
+                <div class="stat-value" id="highScore">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Level</div>
+                <div class="stat-value" id="level">1</div>
+            </div>
+        </div>
+
+        <div class="lives-display" id="lives">
+            <div class="life-heart"></div>
+            <div class="life-heart"></div>
+            <div class="life-heart"></div>
+        </div>
+
+        <canvas id="gameCanvas" width="600" height="400"></canvas>
+
+        <div class="touch-controls" aria-label="Touch controls">
+            <div class="row">
+                <button id="btnUp" class="btn-dir" aria-label="Up">▲</button>
+            </div>
+            <div class="row">
+                <button id="btnLeft" class="btn-dir" aria-label="Left">◀</button>
+                <button id="btnDown" class="btn-dir" aria-label="Down">▼</button>
+                <button id="btnRight" class="btn-dir" aria-label="Right">▶</button>
+            </div>
+        </div>
+
+        <div class="controls">
+            <p><strong>Controls:</strong> Arrow Keys or WASD to move | Space to pause</p>
+            <p><strong>Objective:</strong> Eat fruits to grow and score points. Avoid walls, stones and yourself!</p>
+        </div>
+
+        <div class="power-up-indicator" id="powerUpIndicator">🚀 Speed Boost Active!</div>
+        <div class="speed-indicator" id="speedIndicator">Speed: Normal</div>
+    </div>
+
+    <!-- Start Screen -->
+    <div class="game-overlay" id="startScreen">
+        <div class="overlay-title">🐍 Snake Game</div>
+        <div class="overlay-text">
+            <p>Select difficulty and start the 2D game.</p>
+            <div class="difficulty">
+                <label><input type="radio" name="difficulty" value="easy" checked> Easy</label>
+                <label><input type="radio" name="difficulty" value="medium"> Medium</label>
+                <label><input type="radio" name="difficulty" value="hard"> Hard</label>
+            </div>
+        </div>
+        <button class="game-btn" onclick="startGame()">Start Game</button>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div class="game-overlay" id="gameOverScreen">
+        <div class="overlay-title">Game Over!</div>
+        <div class="overlay-text">
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Level Reached: <span id="finalLevel">1</span></p>
+        </div>
+        <button class="game-btn" onclick="restartGame()">Play Again</button>
+        <button class="game-btn" onclick="showStartScreen()">Main Menu</button>
+    </div>
+
+    <!-- Share Screen -->
+    <div class="game-overlay" id="shareScreen">
+        <div class="overlay-title">Share this game</div>
+        <div class="overlay-text">
+            <input id="shareUrl" class="share-url" type="text" readonly>
+            <div id="qrContainer"><canvas id="qrCanvas" width="200" height="200"></canvas></div>
+        </div>
+        <button class="game-btn" onclick="copyLink()">Copy Link</button>
+        <button class="game-btn" onclick="closeShare()">Close</button>
+    </div>
+
+    <!-- Pause Screen -->
+    <div class="game-overlay" id="pauseScreen">
+        <div class="overlay-title">Game Paused</div>
+        <div class="overlay-text">
+            <p>Press Space to resume</p>
+        </div>
+        <button class="game-btn" onclick="resumeGame()">Resume Game</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

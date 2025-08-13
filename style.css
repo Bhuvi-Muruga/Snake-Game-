@@ -1,0 +1,43 @@
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{background:linear-gradient(135deg,#1e3c72,#2a5298);font-family:Arial,Helvetica,sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;overflow:hidden}
+.game-container{background:rgba(0,0,0,.9);border-radius:20px;padding:16px 16px 20px;box-shadow:0 25px 50px rgba(0,0,0,.6);text-align:center;position:relative;transition:background-color .3s;max-width:94vw}
+.game-container.theme-desert{background:rgba(58,42,24,.9)}
+.game-container.theme-ice{background:rgba(12,58,102,.9)}
+.top-actions{position:absolute;top:8px;left:8px;right:8px;display:flex;justify-content:space-between;gap:8px}
+.home-btn{background:#333;color:#fff;border:1px solid #4caf50;border-radius:8px;padding:6px 10px;cursor:pointer}
+.home-btn:hover{background:#444}
+.game-title{color:#fff;font-size:1.8em;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,.8);font-weight:700}
+.game-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.stat-box{background:rgba(255,255,255,.1);padding:8px 10px;border-radius:12px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}
+.stat-label{color:#ccc;font-size:.75em;margin-bottom:2px}
+.stat-value{color:#fff;font-size:1.1em;font-weight:700}
+.lives-display{display:flex;justify-content:center;gap:6px;margin:8px 0}
+.life-heart{width:18px;height:18px;background:#ff4444;border-radius:50%;border:2px solid #fff;transition:all .3s}
+.life-heart.lost{background:#666;opacity:.4;transform:scale(.85)}
+canvas{border:3px solid #4caf50;border-radius:12px;background:#000;box-shadow:0 15px 30px rgba(0,0,0,.6);margin-bottom:10px;max-width:92vw;height:auto}
+.controls{color:#fff;font-size:.85em;line-height:1.4;margin-bottom:8px}
+.controls strong{color:#4caf50}
+.difficulty{display:flex;gap:12px;justify-content:center;margin-top:8px}
+.difficulty label{color:#fff}
+.touch-controls{display:none;gap:8px;justify-content:center;margin:8px 0}
+.touch-controls .row{display:flex;gap:8px;justify-content:center}
+.btn-dir{width:56px;height:56px;border-radius:12px;border:1px solid #4caf50;background:#1a1a1a;color:#fff;font-size:20px}
+.btn-dir:active{transform:scale(0.98)}
+.game-overlay{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.95);color:#fff;padding:20px;border-radius:16px;text-align:center;display:none;z-index:1000;border:2px solid #4caf50;min-width:260px}
+.overlay-title{font-size:1.4em;margin-bottom:10px;color:#4caf50}
+.overlay-text{font-size:.95em;margin-bottom:12px;line-height:1.5}
+.game-btn{background:linear-gradient(45deg,#4caf50,#45a049);color:#fff;border:none;padding:10px 18px;border-radius:10px;font-size:1em;cursor:pointer;margin:6px;transition:all .2s;box-shadow:0 4px 15px rgba(76,175,80,.3)}
+.game-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(76,175,80,.4)}
+.game-btn:active{transform:translateY(0)}
+.power-up-indicator{position:absolute;top:10px;right:10px;background:rgba(255,215,0,.9);color:#000;padding:6px 10px;border-radius:18px;font-weight:700;display:none}
+.speed-indicator{position:absolute;top:10px;left:10px;background:rgba(76,175,80,.9);color:#fff;padding:6px 10px;border-radius:16px;font-size:.8em;font-weight:700}
+.share-url{width:100%;padding:8px 10px;border-radius:8px;border:1px solid #4caf50;background:#111;color:#fff;margin-bottom:10px}
+#qrContainer{display:flex;justify-content:center}
+
+@media (max-width: 680px){
+	.game-title{font-size:1.4em}
+	.stat-value{font-size:1em}
+	.btn-dir{width:52px;height:52px}
+	.touch-controls{display:flex}
+}
